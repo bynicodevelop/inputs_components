@@ -1,7 +1,7 @@
 name: inputs_components
-description: A new plugin created with the Mason CLI.
+description: Prefabricated form fields
 version: 0.0.1
-homepage: # TODO: Add repository
+homepage: https://github.com/bynicodevelop/inputs_components
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
