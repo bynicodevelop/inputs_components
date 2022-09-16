@@ -6,6 +6,7 @@ class EmailInputComponent extends StatefulWidget {
   final TextEditingController controller;
   final TextInputAction textInputAction;
   final Function(String value)? customValidator;
+  final Function()? onErrors;
 
   const EmailInputComponent({
     super.key,
@@ -13,6 +14,7 @@ class EmailInputComponent extends StatefulWidget {
     required this.controller,
     this.textInputAction = TextInputAction.next,
     this.customValidator,
+    this.onErrors,
   });
 
   @override
@@ -46,6 +48,10 @@ class _EmailInputComponentState extends State<EmailInputComponent> {
             () => _isEmailValid = _validateEmail(widget.controller.text),
           );
         }
+      }
+
+      if (widget.onErrors != null) {
+        widget.onErrors!();
       }
     });
   }

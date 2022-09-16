@@ -89,6 +89,8 @@ void main() {
   testWidgets(
       "Verify error message display when lose focus with custom validator",
       (WidgetTester tester) async {
+    bool hasError = false;
+
     final TextEditingController controller = TextEditingController(
       text: "test",
     );
@@ -100,6 +102,7 @@ void main() {
             label: 'Password',
             controller: controller,
             customValidator: (value) => value.length > 6,
+            onErrors: () => hasError = true,
           ),
         ),
       ),
@@ -116,5 +119,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Invalid password'), findsOneWidget);
+
+    expect(hasError, true);
   });
 }

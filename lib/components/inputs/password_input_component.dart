@@ -5,6 +5,7 @@ class PasswordInputComponent extends StatefulWidget {
   final TextEditingController controller;
   final TextInputAction textInputAction;
   final Function(String value)? customValidator;
+  final Function()? onErrors;
 
   const PasswordInputComponent({
     super.key,
@@ -12,6 +13,7 @@ class PasswordInputComponent extends StatefulWidget {
     required this.controller,
     this.textInputAction = TextInputAction.done,
     this.customValidator,
+    this.onErrors,
   });
 
   @override
@@ -42,6 +44,10 @@ class _PasswordInputComponentState extends State<PasswordInputComponent> {
                 widget.customValidator!(widget.controller.text),
           );
         }
+      }
+
+      if (widget.onErrors != null) {
+        widget.onErrors!();
       }
     });
   }
