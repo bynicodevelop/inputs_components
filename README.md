@@ -42,7 +42,5 @@ class HomeScreen extends StatelessWidget {
 
 ## Rendering
 
-Remplace `URL` by your image url (Delete this message)
-
-<img src="URL" width="320px" />
+<img src="https://raw.githubusercontent.com/bynicodevelop/inputs_components/main/example/assets/preview-0.0.1.png" width="320px" />
 
