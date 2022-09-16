@@ -18,7 +18,23 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Flutter Demo Home Page'),
       ),
-      body: Container(), // Complet example code
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            emailInput(
+              label: "Email",
+              controller: TextEditingController(),
+              textInputAction: TextInputAction.next, /// optional
+            ),
+            passwordInput(
+              label: "Password",
+              controller: TextEditingController(),
+              customValidator: (value) => value.length > 6, /// optional
+            ),
+          ],
+        ),
+      ),
   }
 }
 ```
